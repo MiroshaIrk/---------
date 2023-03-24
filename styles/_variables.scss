@@ -1,0 +1,24 @@
+$color-bg: #e0e5eb;
+$gradient: linear-gradient(to right, #a894e6, #7e77ee);
+$grey: #f0f0f0;
+$light: #fff;
+$hover: #7e77ee;
+
+$transition: all 0.3s ease;
+
+%font-select-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+%font-select {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+@mixin selected {
+  background: $gradient;
+  color: $light;
+}

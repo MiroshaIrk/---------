@@ -1,0 +1,133 @@
+@import "./reset.scss";
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@300;400;500;600;700&display=swap");
+@import url("../fonts/style.css");
+@import "./variables.scss";
+
+body {
+  font-family: "Sofia Sans Condensed", sans-serif;
+  background: $color-bg;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.mobile {
+  width: 350px;
+  height: 700px;
+  background-color: $light;
+  border-radius: 20px;
+  box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-rows: 48px 1fr 62px;
+}
+
+.header,
+.footer {
+  align-self: center;
+  justify-self: center;
+}
+
+.main {
+  background: $light;
+}
+
+/* UI - Components */
+
+.selectbox {
+  cursor: pointer;
+  width: max-content;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 25px;
+  &__selected {
+    padding: 0 12px;
+    position: relative;
+    @extend %font-select-title;
+    z-index: 2;
+    background-color: $light;
+    i,
+    & span {
+      pointer-events: none;
+    }
+  }
+  &__list {
+    position: absolute;
+    top: 0;
+    left: -12px;
+    right: -12px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 8px 12px;
+    background-color: $light;
+    border-radius: 3px;
+    transition: $transition;
+    z-index: 1;
+  }
+  &__item {
+    @extend %font-select;
+    cursor: pointer;
+    transition: $transition;
+    &:not(:last-child) {
+      margin-bottom: 4px;
+    }
+    &.selected,
+    &:hover {
+      color: $hover;
+      font-weight: 600;
+    }
+  }
+  &.open {
+    .selectbox__list {
+      top: 130%;
+      max-height: 200px;
+    }
+    .ic_arrow {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+.ic_arrow {
+  display: inline-block;
+  font-size: 0.7em;
+  margin-left: 10px;
+  transform: rotate(0deg);
+  transition: $transition;
+}
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.room {
+  cursor: pointer;
+  display: grid;
+  grid-template-rows: 130px 30px;
+  text-align: center;
+  align-content: center;
+  background: $grey;
+  border-radius: 12px;
+  transition: $transition;
+  i {
+    align-self: center;
+    font-size: 5em;
+    opacity: 0.7;
+    transition: $transition;
+  }
+  &.selected {
+    @include selected;
+    i {
+      opacity: 1;
+    }
+  }
+}
