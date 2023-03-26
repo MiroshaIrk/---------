@@ -1,12 +1,13 @@
 export default {
-  selectBox: document.querySelector('.selectbox'),
   rooms: document.getElementById('rooms'),
-  // selectBoxList: document.querySelectorAll('.selectbox__item'),
+  selectBox: document.querySelector('.selectbox'),
+  selectBoxList: document.querySelector('.selectbox__list'),
+  settings: document.getElementById('settings'),
+  settingsTabs: document.getElementById('settingsTabs'),
+  settingsPanel: document.getElementById('settingsPanel'),
+  temperatureLine: document.querySelector('.temperature-line'),
+  temperatureRound: document.querySelector('.temperature-round'),
+  temperatureElem: document.querySelector('.temperature-button__info span'),
+  temperatureBtn: document.querySelector('.temperature-button'),
 
-  // bedRoom: document.querySelector('[data-room="bedroom"'),
-  // bathRoom: document.querySelector('[data-room="bathroom"'),
-  // studioRoom: document.querySelector('[data-room="studio"'),
-  // kitchenRoom: document.querySelector('[data-room="kitchen"'),
-  // livingRoom: document.querySelector('[data-room="livingroom"'),
-  // washingRoom: document.querySelector('[data-room="washingroom"'),
 };

@@ -9,7 +9,7 @@
   <title>Умный дом - мобильное приложение</title>
 </head>
 
-<body>
+<body class="body">
   <div class="mobile">
     <header class="header">
       <img src="./images/top.svg" alt="">
@@ -21,7 +21,7 @@
           <i class="ic_arrow"></i>
         </div>
         <div class="selectbox__list">
-          <div class="selectbox__item selected" id="rooms">Все комнаты</div>
+          <div class="selectbox__item selected" data-room="all">Все комнаты</div>
           <div class="selectbox__item" data-room="livingroom">Зал</div>
           <div class="selectbox__item" data-room="bedroom">Спальня</div>
           <div class="selectbox__item" data-room="kitchen">Кухня</div>
@@ -31,7 +31,9 @@
           <!-- <div class="selectbox__item" data-room="">Уборная</div> -->
         </div>
       </div>
-      <div class="rooms">
+
+      <!-- /Блок с комнатами -->
+      <div class="rooms" id="rooms">
         <div class="room" data-room="livingroom">
           <i class="ic_livingroom"></i>
           <span>Зал</span>
@@ -61,6 +63,79 @@
           <span>Уборная</span>
         </div> -->
       </div>
+      <!-- ./Блок с комнотами end -->
+
+      <!-- /Блок регулировки -->
+      <div class="settings" id="settings">
+        <div class="settings__tabs" id="settingsTabs">
+          <div class="option selected" data-type="temperature">
+            <i class="ic_temperature"></i>
+            <span>Температура</span>
+          </div>
+          <div class="option" data-type="lights">
+            <i class="ic_lights"></i>
+            <span>Освещение</span>
+          </div>
+          <div class="option" data-type="humidity">
+            <i class="ic_humidity"></i>
+            <span>Влажность</span>
+          </div>
+        </div>
+
+        <div class="settings__screens" id="settingsPanel">
+          <div class="settings__screen active" data-type="temperature">
+            <div class="settings__screen-title">Температура</div>
+            <div class="temperature-button">
+              <svg class="dots-box" viewBox="0 0 103 103">
+                <circle class="dots" r="50" cx="50%" cy="50%"></circle>
+                <circle class="line" r="44" cx="50%" cy="50%"></circle>
+                <circle class="temperature-line" r="44" cx="50%" cy="50%"></circle>
+                <circle class="separate-line" r="44" cx="50%" cy="50%"></circle>
+                <circle class="temperature-round" r="44" cx="50%" cy="50%"></circle>
+                <circle class="separate-dots" r="50" cx="50%" cy="50%"></circle>
+              </svg>
+              <div class="temperature-button__info">
+                <span>0</span>
+                <span>oC</span>
+              </div>
+            </div>
+            <div class="power">
+              <i class="ic_power"></i>
+            </div>
+            <div class="power-label">Нажмите, чтобы выключить</div>
+            <button class="power-btn">Установите температуру</button>
+          </div>
+
+          <div class="settings__screen" data-type="lights">
+            <div class="settings__screen-title">Интенсивность</div>
+            <div class="settings__screen-icon">
+              <i class="ic_sun"></i>
+            </div>
+            <div class="slide">
+              <div class="slide__progress">45%</div>
+            </div>
+            <div class="switch">
+              <div></div>
+            </div>
+          </div>
+
+          <div class="settings__screen" data-type="humidity">
+            <div class="settings__screen-title">Интенсивность</div>
+            <div class="settings__screen-icon">
+              <i class="ic_humidity"></i>
+            </div>
+            <div class="slide">
+              <div class="slide__progress">45%</div>
+            </div>
+            <div class="switch">
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Блок регулировки end -->
+
+
     </main>
     <footer class="footer">
       <img src="./images/bottom.svg" alt="">
