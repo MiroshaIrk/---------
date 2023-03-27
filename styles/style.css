@@ -286,7 +286,7 @@ h1 {
 .settings__screen {
   display: none;
 }
-.settings__screen.active {
+.settings__screen.selected {
   display: block;
 }
 .settings__screen-title {
@@ -336,6 +336,7 @@ h1 {
 
 /* Кнопка регулировки температуры */
 .temperature-button {
+  cursor: pointer;
   width: 240px;
   height: 240px;
   margin: 0 auto;
@@ -446,7 +447,11 @@ h1 {
   font-weight: 300;
   margin-bottom: 20px;
 }
-.power-btn {
+.power.off {
+  background: #f0f0f0;
+}
+
+.set-btn {
   background: linear-gradient(to right, #a894e6, #7e77ee);
   color: #fff;
   width: 220px;
@@ -465,10 +470,11 @@ h1 {
   border-radius: 16px;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 .slide__progress {
   font-size: 30px;
-  display: grid;
+  display: flex;
   align-items: end;
   justify-content: center;
   font-weight: 600;
@@ -480,7 +486,10 @@ h1 {
   min-height: 36px;
   height: 45%;
   background: linear-gradient(to right, #a894e6, #7e77ee);
-  transition: all 0.5s ease-in-out;
+  pointer-events: none;
+}
+.slide__progress span {
+  pointer-events: none;
 }
 
 /* Slide end */

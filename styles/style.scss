@@ -159,7 +159,7 @@ h1 {
   }
   &__screen {
     display: none;
-    &.active {
+    &.selected {
       display: block;
     }
     &-title {
@@ -210,6 +210,7 @@ h1 {
 
 /* Кнопка регулировки температуры */
 .temperature-button {
+  cursor: pointer;
   width: 240px;
   height: 240px;
   margin: 0 auto;
@@ -319,15 +320,18 @@ h1 {
     font-weight: 300;
     margin-bottom: 20px;
   }
-  &-btn {
-    background: $gradient;
-    color: $light;
-    width: 220px;
-    border-radius: 20px;
-    margin: 0 auto;
-    display: block;
-    padding: 10px 15px;
+  &.off {
+    background: $grey;
   }
+}
+.set-btn {
+  background: $gradient;
+  color: $light;
+  width: 220px;
+  border-radius: 20px;
+  margin: 0 auto;
+  display: block;
+  padding: 10px 15px;
 }
 
 /* Slide */
@@ -339,10 +343,10 @@ h1 {
   border-radius: 16px;
   overflow: hidden;
   position: relative;
-
+  cursor: pointer;
   &__progress {
     font-size: 30px;
-    display: grid;
+    display: flex;
     align-items: end;
     justify-content: center;
     font-weight: 600;
@@ -353,9 +357,12 @@ h1 {
     bottom: 0;
     min-height: 36px;
     height: 45%;
-
     background: $gradient;
-    transition: all 0.5s ease-in-out;
+    pointer-events: none;
+
+    span {
+      pointer-events: none;
+    }
   }
 }
 /* Slide end */
