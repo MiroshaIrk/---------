@@ -106,7 +106,6 @@ h1 {
 
 .rooms {
   display: grid;
-  display: none;
   grid-template-columns: repeat(2, 1fr);
   margin: 0 20px;
   align-items: center;
@@ -150,7 +149,6 @@ h1 {
 .settings {
   padding: 0 20px;
   display: none;
-  display: block;
   &__tabs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -276,14 +274,12 @@ h1 {
 .temperature-round {
   stroke-width: 6px;
   stroke-dasharray: 0 276;
-  transition: all 0.5s ease-in-out;
   transform: rotate(-240deg); // от -240 до 48
 }
 
 .temperature-line {
   stroke: rgba(0, 0, 0, 0.7);
   stroke-dasharray: 54 276; // диапозон от 54 до 276
-  transition: all 0.5s ease-in-out;
 }
 
 .separate-line {
@@ -368,6 +364,7 @@ h1 {
 /* Slide end */
 
 .switch {
+  cursor: pointer;
   width: 60px;
   height: 28px;
   border-radius: 50px;
@@ -376,12 +373,16 @@ h1 {
   position: relative;
   div {
     position: absolute;
-    left: 0; // от 0 до 32
+    left: 52%; // от 0 до 32
     top: 0;
     width: 28px;
     height: 28px;
     border-radius: 50%;
     background: $gradient;
     transition: $transition;
+  }
+  &.off div {
+    left: 0;
+    background: #aaa;
   }
 }

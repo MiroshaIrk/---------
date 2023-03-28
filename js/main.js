@@ -11,6 +11,7 @@ const {
   powerBtn,
   settings,
   selectBox,
+  switchers,
   settingsTabs,
   selectBoxList,
   settingsPanels,
@@ -63,7 +64,9 @@ function selectRoom(room) {
     const {
       lights,
       humidity,
+      lightsOff,
       temperature,
+      humidityOff,
     } = roomsData[room];
 
     roomsData.activeRoom = room;
@@ -74,7 +77,9 @@ function selectRoom(room) {
     setTemperaturePower();
     changeSettingsType(roomsData.activeTab);
     changeSlider(humidity, slider.humidity)
-    changeSlider(lights, slider.lights)
+    changeSlider(lights, slider.lights);
+    changeSwitch('lights', lightsOff);
+    changeSwitch('humidity', humidityOff);
   } else {
     renderScreen(true);
   }
@@ -144,7 +149,10 @@ function changeTemperature() {
   let range = 0;
   let change = 0;
 
-  temperatureBtn.onmouseover = () => mouseover = true;
+  temperatureBtn.onmouseover = () => {
+    mouseover = true;
+    mousedown = false;
+  }
   temperatureBtn.onmouseout = () => mouseover = false;
   temperatureBtn.onmouseup = () => mousedown = false;
   temperatureBtn.onmousedown = (e) => {
@@ -284,5 +292,31 @@ function watchSlider(slider) {
   };
 }
 
-watchSlider(slider.lights)
-watchSlider(slider.humidity)
+watchSlider(slider.lights);
+watchSlider(slider.humidity);
+
+
+// Включение/Выключение света, влажности
+function changeSwitch(activeTab, isOff) {
+  if (isOff) {
+    switchers[activeTab].classList.add('off');
+  } else {
+    switchers[activeTab].classList.remove('off');
+  }
+  console.log(roomsData[roomsData.activeRoom])
+  roomsData[roomsData.activeRoom][`${activeTab}Off`] = isOff;
+}
+
+
+// Клик по переключателю
+switchers.humidity.onclick = (e) => {
+  const isOff = !switchers.humidity.matches('.off');
+
+  changeSwitch(roomsData.activeTab, isOff)
+};
+switchers.lights.onclick = (e) => {
+  const isOff = !switchers.lights.matches('.off');
+
+  changeSwitch(roomsData.activeTab, isOff)
+};
+

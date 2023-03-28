@@ -15,5 +15,9 @@ export default {
     lights: document.getElementById('lightsSlider'),
     humidity: document.getElementById('humiditySlider'),
 
-  }
+  },
+  switchers: {
+    lights: document.getElementById('lights-off'),
+    humidity: document.getElementById('humidity-off'),
+  },
 };
